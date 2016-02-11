@@ -1,3 +1,3 @@
 app.controller("NavController", ["$scope", function($scope) {
-	$scope.isCollapsed = true;
+	$scope.navCollapsed = true;
 }]);
