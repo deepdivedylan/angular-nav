@@ -1,6 +1,6 @@
 app.controller("NavController", ["$http", "$scope", function($http, $scope) {
 	$scope.pages = [];
-	$scope.navCollapsed = false;
+	$scope.navCollapsed = true;
 
 	$scope.getPages = function() {
 		$http.get("navmap.json")
