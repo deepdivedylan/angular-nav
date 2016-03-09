@@ -1,6 +1,7 @@
 app.controller("NavController", ["$http", "$scope", function($http, $scope) {
+	$scope.breakpoint = null;
+	$scope.navCollapsed = null;
 	$scope.pages = [];
-	$scope.navCollapsed = true;
 
 	$scope.getPages = function() {
 		$http.get("navmap.json")
@@ -14,4 +15,9 @@ app.controller("NavController", ["$http", "$scope", function($http, $scope) {
 	if($scope.pages.length === 0) {
 		$scope.getPages();
 	}
+
+	// collapse the navbar if the screen is changed to a extra small screen
+	$scope.$watch("breakpoint", function() {
+		$scope.navCollapsed = ($scope.breakpoint === "xs");
+	});
 }]);
